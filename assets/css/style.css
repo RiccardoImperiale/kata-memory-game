@@ -8,7 +8,9 @@ body {
     background-color: rgb(40, 40, 227);
     color: white;
     font-family: "Orbitron", sans-serif;
+    /* font-family: sans-serif; */
     padding: 5rem 0;
+    transition: 1s;
 }
 
 .container {
@@ -61,11 +63,30 @@ body {
     p {
         font-size: 1.2rem;
         line-height: 1.8rem;
-        padding-bottom: 5rem;
+        padding-bottom: 4rem;
         text-transform: uppercase;
     }
 
     .game_output {
         font-size: 2rem;
+        display: none;
+    }
+
+    .game_finish {
+        font-size: 2rem;
+        margin: 3rem 0;
+        display: none;
+    }
+
+    button.redo {
+        background-color: white;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        display: none;
+        margin: auto;
     }
 }

@@ -1,15 +1,19 @@
 const gameCards = ['alien', 'bug', 'duck', 'rocket', 'spaceship', 'tiktac', 'alien', 'bug', 'duck', 'rocket', 'spaceship', 'tiktac']
 const gameBoard = document.querySelector('.game_board');
 const errorsOutput = document.querySelector('.game_output > span');
+const gameFinish = document.querySelector('.game_finish')
+const redoBtn = document.querySelector('.redo')
+
 const shuffledCards = shuffleCards(gameCards)
 populateBoard()
 const cards = document.querySelectorAll('.card_image');
 turnCards()
-console.log(errorsOutput.innerHTML);
 
 let turnedCards = []
 let errors = 0
 let score = 0
+
+redoBtn.addEventListener('click', playAgain)
 
 function shuffleCards(arr) {
     let radomNumArr = []
@@ -29,7 +33,6 @@ function shuffleCards(arr) {
     return shuffledCards;
 }
 
-{/* <img src="./assets/images/back.png" alt="card back"> */ }
 function populateBoard() {
     const cardTemplate = (cardName) => `
     <div class="card">
@@ -61,6 +64,8 @@ function gameScoring(cardName) {
     } else if (turnedCards.length % 2 !== 0 && !turnedCards.includes(cardName)) {
         errors++
         errorsOutput.innerHTML = errors;
+        errors > 0 && (errorsOutput.parentElement.style.display = 'block')
+
         gameOver()
     }
     score === 6 && gameWon()
@@ -69,14 +74,18 @@ function gameScoring(cardName) {
 function gameOver() {
     score = 0
     turnedCards = []
-
     cards.forEach(card => {
         card.setAttribute('src', './assets/images/back.png')
     })
 }
 
 function gameWon() {
-    console.log('you win');
+    gameFinish.style.display = 'block'
+    redoBtn.style.display = 'block'
+    document.body.style.backgroundColor = 'green'
 }
 
+function playAgain() {
+    location.reload();
+}
 
