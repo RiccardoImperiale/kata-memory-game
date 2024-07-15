@@ -31,12 +31,18 @@ body {
 
     .card {
         width: calc(100% / 4);
-        /* aspect-ratio: 1; */
+        aspect-ratio: 1;
         cursor: pointer;
+        position: relative;
 
-        img {
+        .card_image {
+            position: absolute;
             object-fit: cover;
             width: 100%;
+        }
+
+        .card_hide {
+            opacity: 0;
         }
     }
 }
