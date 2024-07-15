@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(40, 40, 227);
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    padding: 5rem 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1280px;
+    display: flex;
+    gap: 2rem;
+}
+
+.game_board,
+.game_menu {
+    padding: 0;
+}
+
+.game_board {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+        width: calc(100% / 4);
+        /* aspect-ratio: 1; */
+        cursor: pointer;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+}
+
+.game_menu {
+    width: 30%;
+    padding: 1rem;
+    text-align: center;
+
+    .logo {
+        margin: auto;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        padding-bottom: 5rem;
+        text-transform: uppercase;
+    }
+
+    .game_output {
+        font-size: 2rem;
+    }
+}
